@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Comment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Real-time E-commerce Comment Analyzer</h1>
+        <p>Analyze the sentiment and intent of a review in any Indian language.</p>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <form id="comment-form">
+                <textarea id="comment-input" rows="4" placeholder="Enter your review here..."></textarea>
+                <button type="submit">Analyze Comment</button>
+            </form>
+        </section>
+
+        <section class="output-section">
+            <h2>Live Analysis Feed</h2>
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Sentiment</th>
+                        <th>Intent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const comment = document.getElementById('comment-input').value;
+            if (!comment.trim()) return;
+
+            const formData = new FormData();
+            formData.append('comment', comment);
+
+            fetch('/analyze_comment', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('results-table').getElementsByTagName('tbody')[0];
+                const newRow = tableBody.insertRow(0);
+
+                const commentCell = newRow.insertCell(0);
+                const sentimentCell = newRow.insertCell(1);
+                const intentCell = newRow.insertCell(2);
+
+                commentCell.textContent = data.comment;
+                sentimentCell.textContent = data.sentiment;
+                intentCell.textContent = data.intent;
+
+                if (data.sentiment === 'Positive') {
+                    newRow.className = 'sentiment-positive';
+                } else if (data.sentiment === 'Negative') {
+                    newRow.className = 'sentiment-negative';
+                } else {
+                    newRow.className = 'sentiment-neutral';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

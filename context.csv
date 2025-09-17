@@ -1,0 +1,5 @@
+city,is_monsoon,is_festival
+Mumbai,True,False
+Delhi,False,True
+Chennai,False,False
+Bangalore,True,False

@@ -1,0 +1,7 @@
+user_id,product_id,review_text,rating,city,date,category,description,is_monsoon,is_festival,cleaned_review
+101,1001,"ye bag bahut acha hai, the quality is also good.",5,Delhi,2025-05-15,Handbag,A stylish handbag made of synthetic leather.,False,True,ye bag bahut acha hai the quality is also good
+102,1002,kaafi useful hai for monsoons!,4,Mumbai,2025-06-20,Rainwear,A durable raincoat for heavy rains.,True,False,kaafi useful hai for monsoons
+103,1003,"delivery was late, not happy.",2,Chennai,2025-05-10,Electronics,A new smartphone.,False,False,delivery was late not happy
+104,1004,Great product!,5,Bangalore,2025-07-01,Rainwear,A lightweight umbrella.,True,False,great product
+105,1005,bahut badiya hai!,5,Delhi,2025-10-25,Sweets,A box of delicious laddoos.,False,True,bahut badiya hai
+106,1006,"I love this kurti, perfect for Diwali.",5,Delhi,2025-10-24,Clothing,A beautiful kurti.,False,True,i love this kurti perfect for diwali

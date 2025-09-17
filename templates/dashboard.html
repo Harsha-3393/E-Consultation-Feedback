@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Consultation Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2 class="sidebar-title">E-Consultation</h2>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('comments_view') }}">Comments View</a></li>
+                    <li><a href="{{ url_for('analytics') }}">Analytics</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-form-section">
+                <h3>+ Add Comment</h3>
+                <form id="add-comment-form">
+                    <label for="comment_text">Comment text:</label>
+                    <textarea id="comment_text" name="comment_text" rows="4"></textarea>
+                    
+                    <label for="author">Author (optional):</label>
+                    <input type="text" id="author" name="author">
+
+                    <button type="submit">Add Comment</button>
+                    <button type="button" id="analyze-all-btn">Analyze All Comments</button>
+                    <button type="button" id="clear-all-btn">Clear All Comments</button>
+                    <button type="button" id="download-excel-btn">Download Excel</button>
+                </form>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <h1>E-Consultation Sentiment Analysis</h1>
+            <p class="subtitle">Analyze public sentiment from consultation comments with AI-powered insights.</p>
+
+            <section class="overview-section">
+                <h2>Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Comments</h3>
+                        <p id="total-comments">{{ total }}</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Positive Sentiment</h3>
+                        <p id="positive-sentiment">{{ positive }}</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Negative Sentiment</h3>
+                        <p id="negative-sentiment">{{ negative }}</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Neutral Sentiment</h3>
+                        <p id="neutral-sentiment">{{ neutral }}</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

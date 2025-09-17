@@ -1,0 +1,7 @@
+user_id,product_id,review_text,rating,city,date
+101,1001,"ye bag bahut acha hai, the quality is also good.",5,Delhi,2025-05-15
+102,1002,"kaafi useful hai for monsoons!",4,Mumbai,2025-06-20
+103,1003,"delivery was late, not happy.",2,Chennai,2025-05-10
+104,1004,"Great product!",5,Bangalore,2025-07-01
+105,1005,"bahut badiya hai!",5,Delhi,2025-10-25
+106,1006,"I love this kurti, perfect for Diwali.",5,Delhi,2025-10-24
